@@ -1,0 +1,238 @@
+.hero {
+    background: url('../images/hero.jpg') center/cover no-repeat;
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    background: #f0a500;
+    padding: 10px 20px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.cta-btn:hover {
+    background: #d18c00;
+}
+
+.featured-rooms {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.featured-rooms h2 {
+    margin-bottom: 30px;
+}
+
+.rooms-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.room-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.room-card img {
+    width: 100%;
+    height: auto;
+}
+
+.room-card h3 {
+    margin: 15px;
+}
+
+.room-card p {
+    margin: 0 15px 15px;
+    font-size: 0.9em;
+}
+
+footer {
+    background: #002b5c;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .cta-btn {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 15px;
+    }
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    opacity: 0.7;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+}
+
+.reviews-section {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: #f9f9f9;
+}
+.slideshow-container {
+    position: relative;
+    max-width: 700px;
+    margin: auto;
+}
+.review-slide {
+    display: none;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.review-text {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+.review-author {
+    font-weight: bold;
+    color: #555;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    padding: 1rem;
+    margin-top: -22px;
+    color: #be4f4f;
+    font-weight: bold;
+    font-size: 1.5rem;
+    transition:  0.3s;
+    user-select: none;
+    border-radius: 50%;
+}
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.1);
+}
+.prev {
+    left: -50px;
+}
+.next {
+    right: -50px;
+}
+
+/* Fade effect */
+.fade {
+    animation: fadeEffect 1s;
+}
+@keyframes fadeEffect {
+    from {opacity: 0.4}
+    to {opacity: 1}
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .prev { left: 5px; }
+    .next { right: 5px; }
+}
+
+.cookie-consent {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+}
+
+.cookie-consent p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cookie-consent button {
+    background: #1325ce;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.cookie-consent button:hover {
+    background: #210aef;
+}
+

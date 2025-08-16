@@ -3,66 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
-    rel="stylesheet"
-    />"
-
-    <link rel="stylesheet" href="style.css">
-    <title>PARK HYATT</title>
+    <title>THE MONARCH</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/home.css">
 </head>
 <body>
-    <nav>
-        <div class="nav_bar">
-            <div class="nav_header">
-                <div class="logo nav_logo">
-                    <div>P</div>
-                    <span>PARK<BR /> HYAAT</span>
-                 </div>
-                <div class ="nav_manu_btn"id="manu_btn" >
-                    <i class="ri-menu-line"></i>
-                </div>  
-            </div> 
-            <ul class="nav_links" id="nav_links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#rooms & suits">Rooms & Suits</a></li>
-                <li><a href="#branch">Branch</a></li>
-                <li><a href="#contact us">Contact Us</a></li> 
-            </ul>    
-        </div>      
-    </nav>
-    <header class="header" id="HOME">
-        <div class="section_contaniner header_container">
-            <p class="header_subheader">about Us</p>
-            <h1>The perfect<br/>Base for You</h1>
-            <Button class="btn">Take a tour</Button>
-        </div>
-    </header>
 
-    <section class ="booking">
-        <div class="section_container booking_container">
-            <from action="/">
-                <div class="input_group">
-                    <label for="check_in">Check In</label>
-                    <input type="text"placeholder="your check In date">
-                </div>
-                <div class="input_group">
-                    <label for="check_out">Check Out</label>
-                    <input type="text" placeholder="your check Out date">
-                </div>
-                <div class="input_group">
-                    <label for="guests">Guests</label>
-                    <input type="number" placeholder="Number of guests">
-                </div>
-                <button class="btn">Book Now</button>
+<!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">THE MONARCH</div>
+    <button class="menu-toggle" id="menu-toggle">&#9776;</button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms-suites.html">Rooms & Suites</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="book.html" class="book-now">Book Now</a></li>
+    </ul>
+</nav>
 
-            </from>
-            
+
+
+
+<!-- Hero Section -->
+<header class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+        <source src="images/backgroud/Places ｜ Hotel Shoot ｜ Commercial Video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-content">
+        <h1>The Monarch — Your Kingdom of Luxury Awaits.</h1>
+        <p>Experience luxury and comfort in the heart of the city.</p>
+        <a href="book.html" class="cta-btn">Book Your Stay</a>
+    </div>
+</header>
+
+<!-- Featured Rooms -->
+<section class="featured-rooms">
+    <h2>Our Featured Rooms</h2>
+    <div class="rooms-grid">
+        <div class="room-card">
+            <img src="images/room1.jpeg" alt="Deluxe Room">
+            <h3>Deluxe Room</h3>
+            <p>Spacious comfort with city view and king-size bed.</p>
         </div>
-    </section>
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <script scr="main.js"></script>
+        <div class="room-card">
+            <img src="images/room2.jpeg" alt="Suite">
+            <h3>Luxury Suite</h3>
+            <p>Top-floor suite with private balcony and jacuzzi.</p>
+        </div>
+        <div class="room-card">
+            <img src="images/room3.jpeg" alt="Family Room">
+            <h3>Family Room</h3>
+            <p>Perfect for families with two bedrooms and living space.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+ <!-- Reviews Slideshow -->
+<section class="reviews-section">
+    <h2>What Our Guests Say</h2>
+    <div class="slideshow-container">
+
+        <div class="review-slide fade">
+            <p class="review-text">"The Monarch exceeded all my expectations — luxury and service like royalty!"</p>
+            <h4 class="review-author">— Emily R.</h4>
+        </div>
+
+        <div class="review-slide fade">
+            <p class="review-text">"The view from our suite was breathtaking. We'll definitely be coming back!"</p>
+            <h4 class="review-author">— James & Olivia</h4>
+        </div>
+
+        <div class="review-slide fade">
+            <p class="review-text">"Five stars for the spa, the staff, and the food. Absolutely perfect stay."</p>
+            <h4 class="review-author">— Michael T.</h4>
+        </div>
+
+        <!-- Navigation arrows -->
+        <a class="prev">&#10094;</a>
+        <a class="next">&#10095;</a>
+    </div>
+</section>
+
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 The Monarch. All Rights Reserved.</p>
+</footer>
+
+<script src="jsnavber.js"></script>
+<!-- Include just before </body> -->
+<script src="review.js"></script>
+<script src="home.js"></script>
+
+
+<!-- Cookie Consent Banner -->
+<div id="cookie-consent" class="cookie-consent">
+    <p>We use cookies to enhance your experience. Do you accept cookies?</p>
+    <button id="accept-cookie">Accept</button>
+    <button id="reject-cookie">Reject</button>
+</div>
 </body>
+
 </html>
+

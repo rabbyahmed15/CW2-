@@ -1,114 +1,135 @@
-// Room Data
-const rooms = [
-  { name: "Deluxe Room", price: 180, image: "images/deluxe-room.jpg" },
-  { name: "Standard Room", price: 140, image: "images/standard-room.jpg" },
-  { name: "Presidential Suite", price: 350, image: "images/presidential-suite.jpg" },
-  { name: "Executive Suite", price: 280, image: "images/executive-suite.jpg" }
-];
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("bookingForm");
+  const grid = document.getElementById("cardGrid");
+  const sortSelect = document.getElementById("sortPrice");
 
-const roomList = document.getElementById("roomList");
-const bookingList = document.getElementById("bookingList");
+  // Tag original order for "Default" restore
+  Array.from(grid.children).forEach((card, i) => card.dataset.index = i);
 
-let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
-
-// Display Rooms
-function displayRooms() {
-  roomList.innerHTML = "";
-  rooms.forEach((room, index) => {
-    const card = document.createElement("div");
-    card.className = "room-card";
-    card.innerHTML = `
-      <img src="${room.image}" alt="${room.name}">
-      <div class="room-info">
-        <h3>${room.name}</h3>
-        <p class="price">$${room.price}/night</p>
-        <button class="book-now" data-index="${index}">Book Now</button>
-      </div>
-    `;
-    roomList.appendChild(card);
+  // Fallback images if your files are missing
+  const placeholderSVG = encodeURIComponent(
+    `<svg xmlns='http://www.w3.org/2000/svg' width='800' height='500'>
+      <defs><linearGradient id='g' x1='0' x2='1'><stop stop-color='#e9ecef'/><stop offset='1' stop-color='#dee2e6'/></linearGradient></defs>
+      <rect width='100%' height='100%' fill='url(#g)'/>
+      <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'
+        font-family='Montserrat,Arial' font-size='24' fill='#6c757d'>Image coming soon</text>
+    </svg>`
+  );
+  document.querySelectorAll(".room-img").forEach(img => {
+    img.addEventListener("error", () => {
+      img.src = `data:image/svg+xml;charset=utf-8,${placeholderSVG}`;
+    }, { once: true });
   });
-}
 
-// Display Bookings
-function displayBookings() {
-  bookingList.innerHTML = "";
-  if (bookings.length === 0) {
-    bookingList.innerHTML = "<li>No bookings yet.</li>";
-    return;
+  // Load saved booking data
+  const savedData = JSON.parse(localStorage.getItem("bookingData"));
+  if (savedData) {
+    document.getElementById("checkin").value = savedData.checkin || "";
+    document.getElementById("checkout").value = savedData.checkout || "";
+    document.getElementById("guests").value = savedData.guests || 1;
+    document.getElementById("accessible").checked = !!savedData.accessible;
   }
-  bookings.forEach((booking, i) => {
-    const li = document.createElement("li");
-    li.innerHTML = `
-      <span><strong>${booking.room}</strong> - ${booking.name}, ${booking.checkin} to ${booking.checkout} (${booking.guests} guests)</span>
-      <button class="cancel-btn" data-index="${i}">Cancel</button>
-    `;
-    bookingList.appendChild(li);
-  });
+
+// ✅ Cookie Consent
+const cookieBanner = document.getElementById("cookie-banner");
+const acceptBtn = document.getElementById("accept-cookies");
+const rejectBtn = document.getElementById("reject-cookies");
+
+if (!localStorage.getItem("cookiesChoice")) {
+  cookieBanner.classList.remove("hidden");
 }
 
-// Handle Booking Modal
-const modal = document.getElementById("bookingModal");
-const closeBtn = document.querySelector(".close-btn");
-const bookingForm = document.getElementById("bookingForm");
-const selectedRoomInput = document.getElementById("selectedRoom");
-
-function openBookingForm(room) {
-  selectedRoomInput.value = room.name;
-  modal.style.display = "flex";
-}
-closeBtn.onclick = () => (modal.style.display = "none");
-window.onclick = (e) => { if (e.target === modal) modal.style.display = "none"; };
-
-// Handle Book Now Button
-document.addEventListener("click", (e) => {
-  if (e.target.classList.contains("book-now")) {
-    const roomIndex = e.target.getAttribute("data-index");
-    openBookingForm(rooms[roomIndex]);
-  }
+acceptBtn.addEventListener("click", () => {
+  localStorage.setItem("cookiesChoice", "accepted");
+  cookieBanner.classList.add("hidden");
 });
 
-// Handle Form Submit
-bookingForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const booking = {
-    room: selectedRoomInput.value,
-    name: bookingForm.name.value,
-    email: bookingForm.email.value,
-    phone: bookingForm.phone.value,
-    checkin: bookingForm.checkin.value,
-    checkout: bookingForm.checkout.value,
-    guests: bookingForm.guests.value
+rejectBtn.addEventListener("click", () => {
+  localStorage.setItem("cookiesChoice", "rejected");
+  cookieBanner.classList.add("hidden");
+});
+
+
+
+  // Helpers
+  const nightsBetween = (inStr, outStr) => {
+    const inDate = new Date(inStr), outDate = new Date(outStr);
+    const ms = outDate - inDate;
+    return Math.round(ms / (1000 * 60 * 60 * 24));
   };
-  bookings.push(booking);
-  localStorage.setItem("bookings", JSON.stringify(bookings));
-  displayBookings();
-  modal.style.display = "none";
-  bookingForm.reset();
-});
+  const money = (n) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(n);
 
-// Cancel Booking
-bookingList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("cancel-btn")) {
-    const i = e.target.getAttribute("data-index");
-    bookings.splice(i, 1);
-    localStorage.setItem("bookings", JSON.stringify(bookings));
-    displayBookings();
+  // Booking form logic
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const checkin = document.getElementById("checkin").value;
+    const checkout = document.getElementById("checkout").value;
+    const guests = parseInt(document.getElementById("guests").value, 10);
+    const accessibleOnly = document.getElementById("accessible").checked;
+
+    // Save preferences
+    localStorage.setItem("bookingData", JSON.stringify({ checkin, checkout, guests, accessible: accessibleOnly }));
+
+    // Validation
+    if (!checkin || !checkout) return alert("Please select both check-in and check-out dates.");
+    if (new Date(checkout) <= new Date(checkin)) return alert("Check-out date must be after check-in date.");
+    if (guests < 1 || guests > 6) return alert("Guests must be between 1 and 6.");
+
+    const nights = nightsBetween(checkin, checkout);
+    if (nights < 1) return alert("Stay must be at least 1 night.");
+
+    // Check availability + show estimated total
+    document.querySelectorAll(".room-card").forEach(card => {
+      const isAccessible = card.dataset.accessible === "true";
+      const statusEl = card.querySelector(".availability-status");
+      const price = parseFloat(card.dataset.price || "0");
+      const title = card.dataset.title || "Room";
+
+      if (accessibleOnly && !isAccessible) {
+        statusEl.textContent = "Not wheelchair accessible ❌";
+        statusEl.style.color = "red";
+        return;
+      }
+
+      const available = Math.random() > 0.3; // simulate 70% availability
+      if (available) {
+        const total = price * nights;
+        statusEl.textContent = `${title} available ✅ for ${guests} guest(s) • ${nights} night(s) • Est. total ${money(total)}`;
+        statusEl.style.color = "green";
+      } else {
+        statusEl.textContent = "Fully booked ❌";
+        statusEl.style.color = "red";
+      }
+    });
+  });
+
+  // Sort (with persistence)
+  const applySort = (value) => {
+    const cards = Array.from(grid.querySelectorAll(".room-card"));
+    let sorted = [...cards];
+
+    if (value === "low-high") {
+      sorted.sort((a, b) => (+a.dataset.price) - (+b.dataset.price));
+    } else if (value === "high-low") {
+      sorted.sort((a, b) => (+b.dataset.price) - (+a.dataset.price));
+    } else {
+      // default (original DOM order)
+      sorted.sort((a, b) => (+a.dataset.index) - (+b.dataset.index));
+    }
+    sorted.forEach(card => grid.appendChild(card));
+  };
+
+  // Load saved sort
+  const savedSort = localStorage.getItem("sortPreference");
+  if (savedSort) {
+    sortSelect.value = savedSort;
+    applySort(savedSort);
   }
+
+  sortSelect.addEventListener("change", () => {
+    const val = sortSelect.value;
+    localStorage.setItem("sortPreference", val);
+    applySort(val);
+  });
 });
-
-// Responsive Menu Toggle
-document.querySelector(".menu-toggle").addEventListener("click", () => {
-  document.querySelector("nav ul").classList.toggle("show");
-});
-
-// Initial Load
-displayRooms();
-displayBookings();
-
-// Preselect room from URL
-const params = new URLSearchParams(window.location.search);
-const roomParam = params.get("room");
-if (roomParam) {
-  const matchedRoom = rooms.find(r => r.name.toLowerCase() === roomParam.toLowerCase());
-  if (matchedRoom) openBookingForm(matchedRoom);
-}

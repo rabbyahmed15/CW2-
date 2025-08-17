@@ -30,15 +30,26 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("accessible").checked = !!savedData.accessible;
   }
 
-  // Cookie consent slide-in
-  const cookieBanner = document.getElementById("cookieConsent");
-  if (!localStorage.getItem("cookiesAccepted")) {
-    setTimeout(() => cookieBanner.classList.add("show"), 700);
-  }
-  document.getElementById("acceptCookies").addEventListener("click", () => {
-    localStorage.setItem("cookiesAccepted", "true");
-    cookieBanner.classList.remove("show");
-  });
+// ✅ Cookie Consent
+const cookieBanner = document.getElementById("cookie-banner");
+const acceptBtn = document.getElementById("accept-cookies");
+const rejectBtn = document.getElementById("reject-cookies");
+
+if (!localStorage.getItem("cookiesChoice")) {
+  cookieBanner.classList.remove("hidden");
+}
+
+acceptBtn.addEventListener("click", () => {
+  localStorage.setItem("cookiesChoice", "accepted");
+  cookieBanner.classList.add("hidden");
+});
+
+rejectBtn.addEventListener("click", () => {
+  localStorage.setItem("cookiesChoice", "rejected");
+  cookieBanner.classList.add("hidden");
+});
+
+
 
   // Helpers
   const nightsBetween = (inStr, outStr) => {

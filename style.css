@@ -1,0 +1,182 @@
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: 'Lato', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: #2c3e50;
+  margin: 10px 0;
+}
+
+header, footer {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.banner {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Hero Section */
+.hero-section {
+  background: url('../images/hotel-hero.jpg') no-repeat center center/cover;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+}
+
+.hero-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.btn-book {
+  background-color: #d4af37;
+  color: white;
+  padding: 12px 30px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-book:hover {
+  background-color: #bfa133;
+}
+
+/* Sections */
+section {
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 20px;
+}
+
+.timeline {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.timeline-item {
+  background: white;
+  padding: 20px;
+  border-left: 5px solid #d4af37;
+  border-radius: 8px;
+  flex: 1 1 200px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.mission-section p {
+  margin: 15px 0;
+  line-height: 1.6;
+}
+
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.team-member {
+  text-align: center;
+  max-width: 200px;
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.awards-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.awards-grid img {
+  width: 100px;
+  height: auto;
+}
+
+.testimonials-section {
+  text-align: center;
+}
+
+.testimonial {
+  background: white;
+  padding: 20px;
+  margin: 20px auto;
+  border-left: 5px solid #d4af37;
+  border-radius: 8px;
+  max-width: 600px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.05);
+}
+
+.contact-cta {
+  text-align: center;
+  background: #2c3e50;
+  color: white;
+  padding: 50px 20px;
+  border-radius: 8px;
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 1.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

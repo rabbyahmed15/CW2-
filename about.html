@@ -1,63 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Luxury Hotel</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Monarch London – About Us</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Luxury Hotel</h1>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Rooms</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <!-- Header -->
+  <header class="fade-in">
+    <div class="header-content">
+      <img src="images/Exterior.jpg" alt="Hotel Banner" class="banner" />
+      <h1>The Monarch</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rooms-suites.html">Rooms & Suites</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="book.html" class="book-now">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section class="about-intro">
-            <h2>Welcome to Luxury Hotel</h2>
-            <p>Luxury Hotel offers luxurious rooms, world-class service, and a relaxing atmosphere. Our goal is to provide the perfect stay for every guest.</p>
-        </section>
+  <!-- Hero -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h2>Where Luxury Meets Timeless Elegance</h2>
+      <p>Experience unparalleled comfort, exquisite dining, and unforgettable moments at The Monarch London.</p>
+      <a href="book.html" class="btn-book">Book Your Stay</a>
+    </div>
+  </section>
 
-        <section class="our-mission">
-            <h2>Our Mission</h2>
-            <p>We aim to provide comfort, elegance, and outstanding hospitality to all our visitors.</p>
-        </section>
-        
-        <section class="team">
-            <h2>Meet Our Team</h2>
-            <div class="team-members">
-                <div class="member">
-                    <img src="images/member1.jpg" alt="Manager">
-                    <h3>Jane Doe</h3>
-                    <p>General Manager</p>
-                </div>
-                <div class="member">
-                    <img src="images/member2.jpg" alt="Chef">
-                    <h3>John Smith</h3>
-                    <p>Head Chef</p>
-                </div>
-                <div class="member">
-                    <img src="image/" alt="Receptionist">
-                    <h3>Tanni Rani Paul</h3>
-                    <p>Receptionist</p>
-                </div>
-            </div>
-        </section>
-    </main>
+  <!-- History  -->
+  <section class="history-section">
+    <h2>Our Story</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>1920</h3>
+        <p>The Monarch first opened its doors in the heart of London.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>1950</h3>
+        <p>Renovated to include modern amenities while keeping classic elegance.</p>
+      </div>
+      <div class="timeline-item">
+        <h3>2020</h3>
+        <p>Celebrated a century of luxury hospitality with world-class renovations.</p>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Luxury Hotel. All Rights Reserved.</p>
-    </footer>
+  <!-- Mission & Vision -->
+  <section class="mission-section">
+    <h2>Our Mission & Vision</h2>
+    <p>At The Monarch, we are committed to delivering an exceptional experience with personalized service, attention to detail, and a dedication to luxury hospitality.</p>
+    <p>Our vision is to be the preferred destination for discerning travelers seeking timeless elegance and modern comfort.</p>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- Team  -->
+  <section class="team-section">
+    <h2>Meet Our Team</h2>
+    <div class="team-grid">
+      <div class="team-member">
+        <img src="images/Head.jpg" alt="General Manager" />
+        <h3>Emily Carter</h3>
+        <p>General Manager</p>
+      </div>
+      <div class="team-member">
+        <img src="images/Exci .jpg" alt="executive officer" />
+        <h3>James Thompson</h3>
+        <p>executive officer</p>
+      </div>
+      <div class="team-member">
+        <img src="images/Chef.jpg" alt="Executive Chef" />
+        <h3>Isabella Martinez</h3>
+        <p>Executive Chef</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Awards -->
+  <section class="awards-section">
+    <h2>Our Awards</h2>
+    <div class="awards-grid">
+      <img src="images/Award 1.jpg" alt="Award 1" />
+      <img src="images/Award 2.jpg" alt="Award 2" />
+      <img src="images/Award 3.jpg" alt="Award 3" />
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <h2>Guest Testimonials</h2>
+    <div class="testimonial">
+      <p>"A stunning hotel with exceptional service! Truly unforgettable."</p>
+      <h4>- Sarah L.</h4>
+    </div>
+    <div class="testimonial">
+      <p>"From the rooms to the dining, everything was perfect. Highly recommended."</p>
+      <h4>- Michael R.</h4>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery-section">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/lobby.avif" alt="Hotel Lobby" />
+      <img src="images/r1.avif" alt="Luxury Room" />
+      <img src="images/Restaurant.jpg" alt="Hotel Restaurant" />
+      <img src="images/Spa.jpg" alt="Spa" />
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section class="contact-cta">
+    <h2>Plan Your Stay</h2>
+    <p>Contact our concierge to arrange a bespoke experience, or book your room online today.</p>
+    <a href="book.html" class="btn-book">Book Now</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="fade-in">
+    <p>© 2025 The Monarch London. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

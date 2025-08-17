@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Booking | The Monarch</title>
+  <link rel="stylesheet" href="booking.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="header-wrapper">
+      <h1>The Monarch</h1>
+      
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="room+suites.html">Rooms & Suites</a></li>
+          <li><a href="booking.html" class="active">Booking</a></li>
+          
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <button class="menu-toggle">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <h2>Book Your Stay</h2>
+
+    <!-- Rooms Display -->
+    <div id="roomList" class="room-list"></div>
+
+    <!-- Your Bookings -->
+    <section class="bookings-section">
+      <h2>Your Bookings</h2>
+      <ul id="bookingList"></ul>
+    </section>
+  </main>
+
+  <!-- BOOKING FORM MODAL -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3>Complete Your Booking</h3>
+      <form id="bookingForm">
+        <input type="hidden" id="selectedRoom" name="room">
+
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required>
+
+        <label for="checkin">Check-in</label>
+        <input type="date" id="checkin" name="checkin" required>
+
+        <label for="checkout">Check-out</label>
+        <input type="date" id="checkout" name="checkout" required>
+
+        <label for="guests">Guests</label>
+        <input type="number" id="guests" name="guests" min="1" max="6" required>
+
+        <button type="submit" class="btn-submit">Confirm Booking</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 The Monarch. All rights reserved.</p>
+  </footer>
+
+  <script src="booking.js"></script>
+</body>
+</html>

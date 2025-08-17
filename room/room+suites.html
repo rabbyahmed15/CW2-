@@ -12,7 +12,7 @@
   <header>
     <div class="header-wrapper">
       <h1>The Monarch</h1>
-      <p class="tagline">Luxury Redefined</p>
+      
       <nav>
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -20,6 +20,7 @@
           <li><a href="about.html">About Us</a></li>
           <li><a href="contact.html">Contact Us</a></li>
         </ul>
+        <button class="menu-toggle">☰</button>
       </nav>
     </div>
   </header>
@@ -80,7 +81,8 @@
             <li>Wheelchair Accessible</li>
           </ul>
           <p class="availability-status" role="status" aria-live="polite"></p>
-          <button class="availability-btn book-now">Book Now</button>
+          <a href="booking.html?room=Deluxe%20Room&price=180" class="availability-btn book-now">Book Now</a>
+
         </div>
       </article>
 
@@ -102,7 +104,7 @@
             <li>Coffee maker</li>
           </ul>
           <p class="availability-status" role="status" aria-live="polite"></p>
-          <button class="availability-btn book-now">Book Now</button>
+          <a href="booking.html?room=Standard%20Room&price=140" class="availability-btn book-now">Book Now</a>
         </div>
       </article>
 
@@ -125,7 +127,7 @@
             <li>Wheelchair Accessible</li>
           </ul>
           <p class="availability-status" role="status" aria-live="polite"></p>
-          <button class="availability-btn book-now">Book Now</button>
+          g.html?room=Presidential%20Suite&price=350" class="availability-btn book-now">Book Now</a>
         </div>
       </article>
 
@@ -147,21 +149,31 @@
             <li>Complimentary Breakfast</li>
           </ul>
           <p class="availability-status" role="status" aria-live="polite"></p>
-          <button class="availability-btn book-now">Book Now</button>
+          <a href="booking.html?room=Executive%20Suite&price=280" class="availability-btn book-now">Book Now</a>
+
         </div>
       </article>
     </div>
   </main>
 
-  <!-- Cookie Consent -->
-  <div id="cookieConsent" class="cookie-banner">
-    <p>We use cookies to enhance your experience at The Monarch. <a href="privacy.html">Learn more</a></p>
-    <button id="acceptCookies">Accept</button>
+<!-- ✅ Cookie Consent Banner -->
+<div id="cookie-banner" class="cookie-banner hidden">
+  <p>We use cookies to ensure you get the best experience on our website. <a href="privacy.html">Learn more</a></p>
+  <div class="cookie-actions">
+    <button id="accept-cookies">Accept</button>
+    <button id="reject-cookies" class="reject">Reject</button>
   </div>
+</div>
 
   <!-- Sticky Book Now Button for Mobile -->
-  <a href="#bookingForm" class="sticky-book-now">Book Now</a>
+  <a href="booking.html" class="sticky-book-now">Book Now</a>
 
   <script src="script.js"></script>
+
+    <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 The Monarch. All rights reserved.</p>
+    </div>
+    </footer>
 </body>
 </html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rooms & Suites | The Monarch</title>
+  <meta name="theme-color" content="#1a1f2b">
+  <link rel="stylesheet" href="css/rooms-suits.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+</head>
+<body class="page-fade-in">
+  <header>
+    <div class="header-wrapper">
+      <h1>The Monarch</h1>
+      <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="rooms-suits.html" class="active">Rooms & Suites</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="book.html" class="book-now">Book Now</a></li>
+        </ul>
+        <button class="menu-toggle">☰</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Booking Form -->
+    <section class="booking-filters" aria-label="Room book form">
+      <h2>Search Rooms</h2>
+      <form id="bookingForm">
+        <label for="checkin">Check-in:</label>
+        <input type="date" id="checkin" name="checkin" required>
+
+        <label for="checkout">Check-out:</label>
+        <input type="date" id="checkout" name="checkout" required>
+
+        <label for="guests">Guests:</label>
+        <input type="number" id="guests" name="guests" min="1" max="6" value="1" required>
+
+        <label class="checkbox-label">
+          <input type="checkbox" id="accessible" name="accessible">
+          Wheelchair Accessible Only
+        </label>
+
+        <button type="submit" class="availability-btn">Search Availability</button>
+      </form>
+    </section>
+
+    <!-- Sort Dropdown -->
+    <div class="sort-container">
+      <label for="sortPrice">Sort by Price:</label>
+      <select id="sortPrice">
+        <option value="default">Default</option>
+        <option value="low-high">Low to High</option>
+        <option value="high-low">High to Low</option>
+      </select>
+    </div>
+
+    <h2 class="grid-title">Rooms & Suites</h2>
+
+    <!-- Unified Grid (Rooms + Suites) -->
+    <div id="cardGrid" class="card-grid">
+      <!-- Deluxe Room -->
+      <article class="room-card" data-type="Room" data-price="350" data-accessible="true" data-title="Deluxe Room">
+        <figure class="room-media">
+          <img class="room-img"
+               src="images/rooms and suits/deluxe-room.jpg"
+               alt="Deluxe Room at The Monarch with king bed and soft lighting">
+          <figcaption class="badge">Room</figcaption>
+        </figure>
+        <div class="room-info">
+          <h3>Deluxe Room <span class="price">$350/night</span></h3>
+          <p><strong>Check-in:</strong> 2:00 PM &nbsp;|&nbsp; <strong>Check-out:</strong> 11:00 AM</p>
+          <ul class="amenities">
+            <li>Free Wi-Fi</li>
+            <li>King-size bed</li>
+            <li>Air Conditioning</li>
+            <li>Flat-screen TV</li>
+            <li>Wheelchair Accessible</li>
+          </ul>
+          <p class="availability-status" role="status" aria-live="polite"></p>
+          <a href="book.html?room=Deluxe%20Room&price=350" class="availability-btn book-now">Book Now</a>
+        </div>
+      </article>
+
+      <!-- Standard Room -->
+      <article class="room-card" data-type="Room" data-price="200" data-accessible="false" data-title="Standard Room">
+        <figure class="room-media">
+          <img class="room-img"
+               src="images/rooms and suits/standard-room.jpg"
+               alt="Standard Room at The Monarch with queen bed">
+          <figcaption class="badge">Room</figcaption>
+        </figure>
+        <div class="room-info">
+          <h3>Standard Room <span class="price">$200/night</span></h3>
+          <p><strong>Check-in:</strong> 2:00 PM &nbsp;|&nbsp; <strong>Check-out:</strong> 11:00 AM</p>
+          <ul class="amenities">
+            <li>Free Wi-Fi</li>
+            <li>Queen-size bed</li>
+            <li>Air Conditioning</li>
+            <li>Coffee maker</li>
+          </ul>
+          <p class="availability-status" role="status" aria-live="polite"></p>
+          <a href="book.html?room=Standard%20Room&price=200" class="availability-btn book-now">Book Now</a>
+        </div>
+      </article>
+
+      <!-- Presidential Suite -->
+      <article class="room-card" data-type="Suite" data-price="800" data-accessible="true" data-title="Presidential Suite">
+        <figure class="room-media">
+          <img class="room-img"
+               src="images/rooms and suits/presidential-suite.jpg"
+               alt="Presidential Suite at The Monarch with balcony and jacuzzi">
+          <figcaption class="badge">Suite</figcaption>
+        </figure>
+        <div class="room-info">
+          <h3>Presidential Suite <span class="price">$800/night</span></h3>
+          <p><strong>Check-in:</strong> 2:00 PM &nbsp;|&nbsp; <strong>Check-out:</strong> 11:00 AM</p>
+          <ul class="amenities">
+            <li>Private Balcony</li>
+            <li>Luxury Bathroom</li>
+            <li>Mini Bar</li>
+            <li>Jacuzzi</li>
+            <li>Wheelchair Accessible</li>
+          </ul>
+          <p class="availability-status" role="status" aria-live="polite"></p>
+          <a href="book.html?room=Presidential%20Suite&price=800" class="availability-btn book-now">Book Now</a>
+        </div>
+      </article>
+
+      <!-- Executive Suite -->
+      <article class="room-card" data-type="Suite" data-price="450" data-accessible="false" data-title="Executive Suite">
+        <figure class="room-media">
+          <img class="room-img"
+               src="images/rooms and suits/executive-suite.jpg"
+               alt="Executive Suite at The Monarch with workspace and ocean view">
+          <figcaption class="badge">Suite</figcaption>
+        </figure>
+        <div class="room-info">
+          <h3>Executive Suite <span class="price">$450/night</span></h3>
+          <p><strong>Check-in:</strong> 2:00 PM &nbsp;|&nbsp; <strong>Check-out:</strong> 11:00 AM</p>
+          <ul class="amenities">
+            <li>Private Workspace</li>
+            <li>Ocean View</li>
+            <li>Mini Bar</li>
+            <li>Complimentary Breakfast</li>
+          </ul>
+          <p class="availability-status" role="status" aria-live="polite"></p>
+          <a href="book.html?room=Executive%20Suite&price=450" class="availability-btn book-now">Book Now</a>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <!--  Cookie Consent Banner -->
+  <div id="cookie-banner" class="cookie-banner hidden">
+    <p>We use cookies to ensure you get the best experience on our website. <a href="privacy.html">Learn more</a></p>
+    <div class="cookie-actions">
+      <button id="accept-cookies">Accept</button>
+      <button id="reject-cookies" class="reject">Reject</button>
+    </div>
+  </div>
+
+  <!-- Sticky Book Now Button for Mobile -->
+  <a href="book.html" class="sticky-book-now">Book Now</a>
+
+  <script src="all js/rooms-suits.js"></script>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>&copy; 2025 The Monarch. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

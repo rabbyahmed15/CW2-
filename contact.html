@@ -4,31 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Monarch London – Contact Us</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/contact.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <header class="fade-in">
-  <div class="header-content">
-    <img src="banner.jpg" alt="Hotel Banner" class="banner" />
-    <h1>The Monarch</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="room+suites.html">Room+Suites</a></li>
-        <li><a href="booking.html">Booking</a></li>
-        <li><a href="aboutus.html">About Us</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="book.html" class="book-now">Book Now</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
+    <div class="header-content">
+      <img src="images/contact.jpg" alt="Hotel Banner" class="banner" />
+      <h1>The Monarch</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rooms-suits.html">Rooms & Suites</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="book.html" class="book-now">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <section class="contact-section slide-up">
       <h2>Contact Our Concierge</h2>
-      <p>At <strong>The Monarch London</strong>, we believe luxury is in the details. Whether you're planning a romantic escape, a corporate retreat, or a bespoke event, our concierge team is here to assist you with grace and discretion.</p>
+      <p>
+        At <strong>The Monarch London</strong>, we believe luxury is in the details. Whether you're planning a romantic escape, a corporate retreat, or a bespoke event, our concierge team is here to assist you with grace and discretion.
+      </p>
 
       <form id="contactForm">
         <label for="name">Full Name</label>
@@ -41,8 +42,19 @@
         <textarea id="message" name="message" rows="5" required></textarea>
 
         <button type="submit">Submit Request</button>
+        <p id="errorMessage">Please fill out all fields correctly.</p>
       </form>
 
+      <!-- Popup -->
+      <div class="popup" id="popup">
+        <div class="popup-content">
+          <h3 id="popupTitle">Message</h3>
+          <p id="popupMessage">Form submitted successfully!</p>
+          <button onclick="closePopup()">OK</button>
+        </div>
+      </div>
+
+      <!-- Contact Info -->
       <div class="contact-info">
         <h3>The Monarch London</h3>
         <p>123 Oceanview Drive, Kensington, London</p>
@@ -56,7 +68,6 @@
     <p>© 2025 The Monarch London. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="all js/contact.js" defer></script>
 </body>
 </html>
-

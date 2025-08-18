@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Monarch London – Booking</title>
+  <link rel="stylesheet" href="css/book.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="fade-in">
+    <div class="header-content">
+      <img src="images/book.jpeg" alt="Hotel Banner" class="banner" />
+      <h1>The Monarch London</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="rooms-suits.html">Rooms & Suites</a></li>
+          <li><a href="aboutus.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="booking.html" class="book-now">Book Now</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="booking-section slide-up">
+      <h2>Book Your Stay</h2>
+      <p>Experience luxury and comfort at The Monarch London. Fill out the form below to reserve your room.</p>
+
+      <form id="bookingForm">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="checkin">Check-in Date</label>
+        <input type="date" id="checkin" name="checkin" required />
+
+        <label for="checkout">Check-out Date</label>
+        <input type="date" id="checkout" name="checkout" required />
+
+        <label for="guests">Number of Guests</label>
+        <input type="number" id="guests" name="guests" min="1" required />
+
+        <label for="room">Room Type</label>
+        <select id="room" name="room" required>
+          <option value="">Select a room</option>
+          <option value="deluxe">Deluxe - £300/night</option>
+          <option value="Executive">Executive - £450/night</option>
+          <option value="presidential-suite">presidential-suite - £800/night</option>
+          <standard value="standard">Standard - £200/night</option>
+        </select>
+
+        <p id="totalPrice">Total Price: £0</p>
+
+        <button type="submit">Confirm Booking</button>
+      </form>
+
+      <div class="popup" id="popup">
+        <div class="popup-content">
+          <h3>Booking Status</h3>
+          <p id="popupMessage">Your booking has been received!</p>
+          <button onclick="closePopup()">OK</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="fade-in">
+    <p>© 2025 The Monarch London. All rights reserved.</p>
+  </footer>
+
+  <script src="all js/book.js"></script>
+</body>
+</html>
